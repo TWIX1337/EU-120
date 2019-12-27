@@ -1,0 +1,147 @@
+//51
+
+M = 2
+list_strings = []
+for i in range(0, M):
+ print("Введите строку:", end=' ')
+ list_strings.append(input())
+max_str_len = 0
+for str in list_strings:
+ str_len = len(str)
+if str_len > max_str_len:
+ max_str_len = str_len
+print("Максимальная длина строки:", max_str_len)
+for str in list_strings:
+ str_len = len(str)
+if str_len < max_str_len:
+ for i in range(0, max_str_len - str_len):
+ str = '*' + str
+print(str)
+
+//52
+
+M = 4
+list_strings = []
+for i in range(0, M):
+print("Введите строку:", end=' ')
+list_strings.append(input())
+print(' '.join(list_strings))
+
+//53
+
+import re
+M = 4
+def get_count(str):
+vowel = 0
+consonant = 0
+str = re.sub(r'\d', '', str)
+str = re.sub(r'\W', '', str)
+i = 0
+while i < len(str):
+char = str[i]
+if char.lower() in ['a', 'e', 'i', 'o', 'u', 'y','а', 'у', 'о', 'ы', 'и', 'э', 'я', 'ю', 'ё', 'е']: 
+vowel += 1
+else:
+consonant += 1
+i += 1
+return vowel, consonant
+list_strings = []
+for i in range(0, M):
+print("Введите строку:", end=' ') 
+list_strings.append(input())
+for str in list_strings:
+vowel, consonant = get_count(str)
+print("В строке %s %s гласных %s согласных" % (str, vowel, consonant)) 
+
+//54
+
+import re
+M = 2
+list_strings = []
+for i in range(0, M):
+print("Введите строку:", end=' ') 
+list_strings.append(input())
+print("Введите слог:", end=' ') 
+syllable = input()
+for string in list_strings:
+count = len(re.findall(syllable, string))
+print("в строке \"%s\" слог \"%s\" встречается  %s раз" 
+% (string, syllable, count))
+
+//55
+import re
+M = 3
+list_strings = []
+for i in range(0, M):
+print("Введите строку:", end=' ') 
+list_strings.append(input())
+print("Введите слог:", end=' ') 
+syllable = input()
+for string in list_strings:
+string = re.sub(syllable, '', string)
+print(string)
+
+//56
+
+# -*- coding: utf-8 -*-
+import math
+M = 3
+list_strings = []
+for i in range(0, M):
+ print("Введите строку:", end=' ') 
+ list_strings.append(input())
+for string in list_strings:
+ strlen = len(string)
+ if strlen % 2 != 0:
+ print(string[math.ceil(strlen/2) - 1])
+
+//57
+
+# -*- coding: utf-8 -*-
+M = 3
+list_strings = []
+for i in range(0, M):
+ print("Введите строку:", end=' ')
+ list_strings.append(input())
+for string in list_strings:
+ print(' '.join(string))
+
+//58
+
+# -*- coding: utf-8 -*-
+from datetime import datetime
+M = 3
+list_strings = []
+for i in range(0, M):
+ print("Введите строку :", end=' ')
+ list_strings.append(input())
+now = str(datetime.now())
+for string in list_strings:
+ print(string.replace('.', '.' + now))
+
+//59
+
+# -*- coding: utf-8 -*-
+import re
+M = 3
+list_strings = []
+for i in range(0, M):
+ print("Введите строку:", end=' ') 
+ list_strings.append(input())
+for string in list_strings:
+ count_spaces = len(re.findall(r'\s', string))
+ print("В строке \"%s\" %s пробелов" % (string, count_spaces)) 
+
+//60
+
+# -*- coding: utf-8 -*-
+import re
+M = 3
+list_strings = []
+for i in range(0, M):
+ print("Введите строку:", end=' ') 
+
+ list_strings.append(input())
+for string in list_strings:
+ string = re.sub(r'\?', '*', string)
+ print(string)
