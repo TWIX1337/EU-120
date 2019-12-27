@@ -1,0 +1,213 @@
+//31
+
+import random A = [random.randint(0, 1000) for _ in range(20)]
+print A for i in range (0,len(A),-1):
+for j in range(len(A) - 1):
+for i in range(len(A) - 1):
+if A[i] > A[i+1]:
+x = A[i]
+A[i] = A[i+1]
+A[i+1] = x print A
+
+//32
+
+import random
+A = [random.randint(0, 1000) for _ in range(20)]
+
+print A
+for i in range (0,len(A),2):
+
+x=A[i]
+
+A[i]=A[i+1]
+
+A[i+1]=x
+print A
+
+//33
+
+import random
+A = [random.randint(0, 10) for _ in range(5)]
+
+x=A.pop (-1)
+A.insert (0,x)
+print A
+
+//34
+
+import random
+N=10
+
+A = [random.randint(0, 10) for _ in range(N)]
+
+print A
+p=int(N/2)
+for i in range (p):
+
+x= A[i]
+
+A[i]=A[i+p]
+
+A[i+p]=x
+print A
+
+//35
+
+import random
+N=20
+
+A = [random.randint(0, 10) for _ in range(N)]
+
+M=3
+
+K=4
+
+P=13
+
+print A
+for i in range (K,K+M):
+
+x= A[i]
+
+A[i]=A[P-K+i]
+
+A[P-K+i]=x
+print A
+
+//36
+
+import random
+import math
+
+N = 11
+M = 3
+K = 5
+
+def init_random_list(list_size):
+
+ list = []
+
+ while list_size > 0:
+
+ list.append(random.randint(1, 100))
+ list_size = list_size - 1
+ return list
+lst = init_random_list(N)
+print("source array: ", lst)
+lst[K:K+M] = init_random_list(M)
+print("modified array:", lst)
+
+//37
+
+import random
+import math
+
+N = 11
+def init_random_list(list_size):
+
+ list = []
+
+ while list_size > 0:
+
+ list.append(random.randint(-100, 100))
+ list_size = list_size - 1
+ return list
+lst = init_random_list(N)
+print("source array: ", lst)
+sum = 0
+positive_num = 0
+for i in range(len(lst)):
+
+ sum += lst[i]
+
+ if lst[i] > 0:
+
+ positive_num += 1
+lst[0] = sum
+lst[1] = positive_num
+print("modified array:", lst)
+
+//38
+
+import random
+import math
+
+N = 11
+M = 3
+
+K = 4
+
+def init_random_list(list_size):
+
+ list = []
+
+ while list_size > 0:
+
+ list.append(random.randint(-100, 100))
+ list_size = list_size - 1
+ return list
+lst = init_random_list(N)
+print("source array: ", lst)
+del lst[K:K+M]
+
+print("modified array:", lst)
+
+//39
+
+import random
+import math
+
+N = 11
+M = 3
+K = 4
+def init_random_list(list_size):
+
+ list = []
+
+ while list_size > 0:
+
+ list.append(random.randint(-1, 1))
+ list_size = list_size - 1
+ return list
+lst = init_random_list(N)
+print("source array: ", lst)
+i = 0
+j = len(lst)
+while i < j:
+
+ if lst[i] == 0:
+
+ del lst[i]
+
+ j -= 1
+ else:
+ i += 1
+print("modiffied array:", lst)
+
+//40
+
+import random
+import math
+N = 11
+M = 3
+K = 4
+def init_random_list(list_size):
+
+ list = []
+ while list_size > 0:
+
+ list.append(random.randint(-3, 3))
+ list_size = list_size - 1
+ return list
+lst = init_random_list(N)
+print("source array: ", lst)
+i = 0
+j = len(lst)
+while i < j:
+
+ if lst[i]< 0:
+
+ lst.insert(i+1, lst[i]* lst[i])
+ j += 1
+ i += 1
+print("modified array:", lst)
