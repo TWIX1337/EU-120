@@ -1,323 +1,519 @@
+#0
+import numpy as np
+N = 4
+M = 5
+
+A = np.random.randint(low=-9, high=10, size=(N, M))
+print("Матрица:\r\n{}".format(A))
+
+sum = A.sum(axis=0)
+index = sum.argmax(axis=0)
+max = A.max(axis=0)
+max = max[index]
+
+print("Наибольшее значение: {}".format(max))
+#1
 import numpy as np
 
-print('zadanie №1')
-def task1(a, n, m):
-    b = np.fabs(a)
-    index = np.argmax(b.max(axis=0))
-    print((a[:, index]).max())
+N = 4
+M = 5
 
-print('zadanie №2')
-def task2(a, n, m):
-    print(a.mean(axis=1))
-    print(max(a.mean(axis=1)))
+A = np.random.randint(low=-9, high=10, size=(N, M))
+print("Матрица:\r\n{}".format(A))
 
-print('zadanie №3')
-def task3(a, n, m):
-    b = np.fabs(a)
-    index = np.argmax(b.max(axis=0))
-    print((a[:, index]).min())
+Average = A.mean(axis=1)
+index = Average.argmax(axis=0)
+max = Average.max(axis=0)
 
-print('zadanie №4')
-def task4(a, n, m):
-    print(min(a.mean(axis=1)))
+print("Наибольшее среднее значение: {}".format(max))
+#2
+import numpy as np
 
-print('zadanie №5')
-def task5(a, n, m):
-    col = a.mean(axis=0)
-    print(col)
-    col = (col[np.newaxis, :])
-    print(np.vstack([a, col]))
-    a = (np.vstack([a, col]))
-    row = a.mean(axis=1)
-    row = (row[np.newaxis, :])
-    row = row.reshape(n + 1, 1)
-    a = (np.hstack([a, row]))
-    print(a)
+N = 4
+M = 5
 
-print('zadanie №6')
-def task6(a, n, m):
-    sum_elem = a.sum()
-    list_sum_col = []
-    for i in range(m):
-        sum_col = sum(a[:, i])
-        list_sum_col.append(sum_col)
-        print(sum_col * 100 / sum_elem)
-    npa = np.asarray(list_sum_col)
-    npa = (npa[np.newaxis, :])
-    a = (np.vstack([a, npa]))
-    print(a)
+A = np.random.randint(low=-9, high=10, size=(N, M))
+print("Матрица:\r\n{}".format(A))
 
-print('zadanie №7')
-def task7(a, n, m):
-    sum_elem = a.sum()
-    list_sum_row = []
-    for i in range(n):
-        sum_row = sum(a[i, :])
-        list_sum_row.append(sum_row * 100 / sum_elem)
-        print(sum_row * 100 / sum_elem)
-    row = np.asarray(list_sum_row)
-    row = (row[:, np.newaxis])
-    a = np.append(a, row, axis=1)
-    print(a)
+sum = A.sum(axis=0)
+index = sum.argmin(axis=0)
+min = A.min(axis=0)
+min = min[index]
 
-print('zadanie №8')
-def task8(a, n, m):
-    col = []
-    row = []
-    for i in range(m):
-        b = a[:, i]
-        col.append(sum(i < 0 for i in b))
-    col = np.asarray(col)
-    col = (col[np.newaxis, :])
-    a = np.append(a, col, axis=0)
+print("Наименьшее значение: {}".format(min))
+#3
+import numpy as np
 
-    for i in range(n + 1):
-        b = a[i, :]
-        row.append(sum(i < 0 for i in b))
-    row = np.asarray(row)
-    row = (row[:, np.newaxis])
-    a = np.append(a, row, axis=1)
-    print(a)
+N = 4
+M = 5
 
-print('zadanie №9')
-def task9(a, n, m, l, k):
-    count_top = 0
-    count_left = 0
-    b = a[:l, :].copy()
-    for index, value in np.ndenumerate(b):
-        if value == 0:
-            count_top += 1
-    print("The first " + str(l) + " lines: " + str(count_top) + " zeros")
+A = np.random.randint(low=-9, high=10, size=(N, M))
+print("Матрица:\r\n{}".format(A))
 
-    c = a[:, :k].copy()
-    for index, value in np.ndenumerate(c):
-        if value == 0:
-            count_left += 1
-    print("The first " + str(k) + " columns: " + str(count_top) + " zeros")
+Average = A.mean(axis=1)
+index = Average.argmin(axis=0)
+min = Average.min(axis=0)
 
-print('zadanie №10')
-def task10(a, n, m, k):
-    col = a[:, k]
-    for i in range(m):
-        if i == k:
-            continue
-        a[:, i] = col * a[:, i]
-    print(a)
+print("Наименьшее среднее значение: {}".format(min))
+#4
+import numpy as np
 
-print('zadanie №11')
-def task11(a, n, m, l):
-    row = a[l, :]
-    for i in range(n):
-        if i == l:
-            continue
-        a[i, :] = row + a[i, :]
-    print(a)
+N = 4
+M = 5
 
-print('zadanie №12')
-def task12(a, n, m):
-    a.astype()
-    max_elem = a.max(axis=1)
-    print(max_elem)
-    for i in range(n):
-        for j in range(m):
-            a[i][j] /= max_elem[i]
-    print(a)
+A = np.random.randint(low=-9, high=10, size=(N, M))
+print("Матрица:\r\n{}\n".format(A))
 
-print('zadanie №13')
-def task13(a, n, m):
-    for i in range(m):
-        max_elem = max(a[:, i])
-        #print(max_elem)
-        a[:, i] /= max_elem
-    print(a)
+Average_line = A.mean(axis=1)
+Average_column = A.mean(axis=0)
+Average_line = Average_line[: , np.newaxis]
+A = np.hstack((A, Average_line))
+Average_column = np.hstack((Average_column, [0.]))
+A = np.vstack((A, Average_column))
 
-print('zadanie №14')
-def task14(a, n, m):
-    print(a.max())
-    a = a / (a.max())
-    print(a)
+print("Новая матрица:\r\n{}\n".format(A))
+#5
+import numpy as np
 
-print('zadanie №15')
-def task15(a, n, m, h):
-    contains = []
-    not_contains = []
-    for i in range(m):
-        print(a[:, i])
-        if h in a[:, i]:
-            contains.append(i)
-        else:
-            not_contains.append(i)
-    print('Contains: {}, Not contains: {}, value: {}'.format(contains, not_contains, h))
+N = 4
+M = 5
 
-print('zadanie №16')
-def task16(a, n, m, l):
-    a = np.delete(a, l, axis=0)
-    print(a)
+A = np.random.randint(low=-9, high=10, size=(N, M))
+print("Матрица:\r\n{}\n".format(A))
 
-print('zadanie №17')
-def task17(a, n, m, l):
-    a = np.insert(a, [l], [1], axis=0)
-    print(a)
+Sum = A.sum()
+B=np.sum(A)
+M_sum = np.sum(A, axis=0)/np.sum(A)
+A = np.vstack((A,M_sum))
+print("Новая матрица:\r\n{}\n".format(A))
+#6
+import numpy as np
 
-print('zadanie №18')
-def task18(a, n, m):
-    # n must less then m
-    sumMain = 0
-    sumSecondary = 0
-    for i in range(N):
-        sumMain += a[i][i]
-        sumSecondary += a[i][n - i - 1]
-    print(sumMain)
-    print(sumSecondary)
+N = 4
+M = 5
 
-print('zadanie №19')
-def task19(a, n):
-    sum_elem_down = 0
-    sum_elem_up = 0
-    for i in range(1, n):
-        sum_elem_down += a[i][i - 1]
-        sum_elem_up += a[i - 1][i]
-    print(sum_elem_down + sum_elem_up)
+A = np.random.randint(low=-9, high=10, size=(N, M))
+print("Матрица:\r\n{}\n".format(A))
 
-print('zadanie №20')
-def task20(a, n):
-    sum_elem_down = 1
-    sum_elem_up = 1
-    for i in range(0, n-1):
-        sum_elem_down *= a[n-i-1][i+1]
-        sum_elem_up *= a[i][n-i-2]
-    print(sum_elem_down * sum_elem_up)
+Sum = A.sum()
+print("Сумма элементов всей матрицы: " + str(Sum) + "\n")
+Sum_column = A.sum(axis=1)
+X = []
+for i in range(0, N):
+    n = Sum_column[i] / Sum
+    X.append(n)
+X = np.array(X)[: , np.newaxis]
+A = np.hstack((A, X))
 
-print('zadanie №21')
-def task21(a, n):
-    for i in range(1, n):
-        _sum = a[i][i - 1] + a[i - 1][i]
-        a.itemset((i, i-1), _sum // 2)
-        a.itemset((i-1, i), _sum // 2)
-    print(a)
+print(A)
+#7
+import numpy as np
 
-print('zadanie №22')
-def task22(a, n, m):
-    b = a.sum(axis=1)
-    b %= 2
-    b = (b[np.newaxis, :])
-    b = b.reshape(n, 1)
-    print(np.hstack([a, b]))
+N = 4
+M = 5
 
-print('zadanie №23')
-def task23(a, n):
-    sum_elem = 0
-    mul_elem = 1
-    for i in range(0, n):
-        sum_elem += a[i, i + 1:].sum()
+A = np.random.randint(low=-9, high=10, size=(N, M))
+print("Матрица:\r\n{}\n".format(A))
 
-    for i in range(0, n - 1):
-        for j in range(0, n - i - 1):
-            mul_elem *= a[i][j]
-    print("Sum_elem= " + str(sum_elem) + " Mul_elem= " + str(mul_elem))
+X = []
+for i in range(0, N):
+    K = 0
+    for j in range(0, M):
+        if A[i,j] < 0:
+            K += 1
+    X.append(K)
+Y = []
+for i in range(0, M):
+    K = 0
+    for j in range(0, N):
+        if A[j,i] < 0:
+            K += 1
+    Y.append(K)
+X = np.array(X)[: , np.newaxis]
+A = np.hstack((A, X))
+Y = np.hstack((Y, [0.]))
+A = np.vstack((A, Y))
 
-print('zadanie №24')
-def task24(a, n, m, l, k):
-    print(a[:l, :k].sum())
-    print(a[:l, k:].sum())
-    print(a[l:, :k].sum())
-    print(a[l:, k:].sum())
+print("Новая матрица:\r\n{}\n".format(A))
+#8
+import numpy as np
 
-print('zadanie №25')
-def task25(a, n, m):
-    col = []
-    row = []
+N = 4
+M = 5
+L = np.random.randint(0, 3)
+K = np.random.randint(0, 3)
 
-    for i in range(m):
-        col.append(np.count_nonzero(a[:, i] == 0))
-    col = np.asarray(col)
-    col = (col[np.newaxis, :])
-    a = np.append(a, col, axis=0)
+A = np.random.randint(low=-9, high=10, size=(N, M))
+print("Матрица:\r\n{}\n".format(A))
 
-    for i in range(n + 1):
-        row.append(np.count_nonzero(a[i, :] == 0))
-    row = np.asarray(row)
-    row = (row[:, np.newaxis])
-    a = np.append(a, row, axis=1)
-    print(a)
+n = 0
+for i in range(0, L):
+    for j in range(0, M):
+        if A[i,j] == 0:
+            n += 1
+print("Количество нулевых элементов в верхних L солбцах: {}\n".format(n))
+m = 0
+for i in range(0, K):
+    for j in range(0, N):
+        if A[j,i] == 0:
+            m += 1
+print("Количество нулевых элементов в левых L солбцах: {}\n".format(m))
+#9
+import numpy as np
 
-print('zadanie №26')
-def task26(a, n, m, l, k):
-    print(a[:l, :k].mean())
-    print(a[:l, k:].mean())
-    print(a[l:, :k].mean())
-    print(a[l:, k:].mean())
+N = 4
+M = 5
+K = np.random.randint(1, 3)
 
-print('zadanie №27')
-def task27(a, n, m, h):
-    contains = []
-    not_contains = []
-    for i in range(n):
-        if h in a[i, :]:
-            contains.append(i)
-        else:
-            not_contains.append(i)
-    print('Contains: {}, Not contains: {}, value: {}'.format(contains, not_contains, h))
+A = np.random.randint(low=-9, high=10, size=(N, M))
+print("Матрица:\r\n{}\n".format(A))
 
-print('zadanie №28')
-def task28(a, n, m, k):
-    a = np.delete(a, (k), axis=1)
-    print(a)
+K_arr = np.array(A[:, K-1])
+K_arr = K_arr[: , np.newaxis]
+print("K-ый столбец: \r\n{}\n".format(K_arr))
+A = A * K_arr
 
-print('zadanie №29')
-def task29(a, n, m, k):
-    b = np.random.randint(-15, 15, size=(n, 1))
-    c = np.insert(a, k, values=b[:, 0], axis=1)
-    print(c)
+print("Новая матрица:\r\n{}\n".format(A))
+#10
+import numpy as np
 
-print('zadanie №30')
-def task30(a, n, m):
-    col = []
-    for i in range(m):
-        b = a[:, i]
-        sum_abs = 0
-        sum = 0
-        for j in range(n):
-            if b[j] < 0:
-                sum_abs += abs(b[j])
-            else:
-                sum += b[j]
-        col.append(sum_abs - sum)
-    col = np.asarray(col)
-    col = (col[np.newaxis, :])
-    a = np.append(a, col, axis=0)
-    print(a)
+N = 4
+M = 5
+L = np.random.randint(1, 3)
 
-print('zadanie №31')
-def task31(a, n, m):
-    row = []
-    for i in range(n):
-        b = a[i, :]
-        sum_abs = 0
-        sum = 0
-        for j in range(m):
-            if b[j] < 0:
-                sum_abs += abs(b[j])
-            else:
-                sum += b[j]
-        row.append(sum_abs - sum)
-    row = np.asarray(row)
-    row = (row[:, np.newaxis])
-    a = np.append(a, row, axis=1)
-    print(a)
+A = np.random.randint(low=-9, high=10, size=(N, M))
+print("Матрица:\r\n{}\n".format(A))
 
+L_arr = np.array(A[L-1, :])
+print("L страка: \r\n{}\n".format(L_arr))
+A = A + L_arr
 
-if __name__ == '__main__':
-    N = 5
-    M = 6
+print("Новая матрица:\r\n{}\n".format(A))
+#11
+import numpy as np
 
-    A = np.random.randint(1, 25, size=(N, M))
+N = 4
+M = 5
 
-    # Some function must called:
-    # A = np.random.randint(-15, 15, size=(N, M))
-    # B = np.random.random(size=(N, M))
-    # B *= 100
-    # B = np.around(B, decimals=2)
-    # For example:
-    # task13(B, N, M)
-    task6(A, N, M)
+A = np.random.randint(low=-9, high=10, size=(N, M))
+print("Матрица:\r\n{}\n".format(A))
+
+Max = A.max(axis=1)
+Max = np.array(Max)[: , np.newaxis]
+A = A / Max
+
+print("Новая матрица:\r\n{}\n".format(A))
+#12
+import numpy as np
+
+N = 4
+M = 5
+
+A = np.random.randint(low=-9, high=10, size=(N, M))
+print("Матрица:\r\n{}\n".format(A))
+
+Max = A.max(axis=0)
+A = A / Max
+
+print("Новая матрица:\r\n{}\n".format(A)
+#13
+import numpy as np
+
+N = 4
+M = 5
+
+A = np.random.randint(low=-9, high=10, size=(N, M))
+print("Матрица:\r\n{}\n".format(A))
+
+Max = A.max()
+print(Max)
+A = A / Max
+
+print("Новая матрица:\r\n{}\n".format(A))
+#14
+import numpy as np
+
+N = 4
+M = 5
+
+A = np.random.randint(low=-9, high=10, size=(N, M))
+print("Матрица:\r\n{}\n".format(A))
+
+bool = A == 0
+col = np.sum(bool, axis=1)
+A = np.insert(A, M, col, axis=1)
+row = np.append(np.sum(bool, axis=0), 0)
+A = np.insert(A, N, row, axis=0)
+print("Новая матрица:\r\n{}\n".format(A))
+#15
+import numpy as np
+
+N = 4
+M = 5
+H = np.random.randint(1, 4)
+
+A = np.random.randint(low=-9, high=10, size=(N, M))
+print("Матрица:\r\n{}\n".format(A))
+
+a = []
+b = []
+for i in range(M):
+    if H in A[:, i]:
+        a.append(i+1)
+    else:
+        b.append(i+1)
+print("Столбцы, которые имеют хотя бы одно число H - {}\n".format(a))
+print("Столбцы, которые не имеют это число - {}\n".format(b))
+#16
+import numpy as np
+
+N = 4
+M = 5
+L = np.random.randint(1, 3)
+
+A = np.random.randint(low=-9, high=10, size=(N, M))
+print("Матрица:\r\n{}\n".format(A))
+
+print("L = " + str(L))
+A = np.delete(A, (L-1), axis=0)
+
+print("Новая матрица:\r\n{}\n".format(A))
+#17
+import numpy as np
+
+N = 4
+M = 5
+L = np.random.randint(1, 3)
+
+A = np.random.randint(low=-9, high=10, size=(N, M))
+print("Матрица:\r\n{}\n".format(A))
+
+a = np.random.randint(0, 10, M)
+print("Допонлительная строка: " + str(a))
+print("\n L = " + str(L))
+
+row = np.random.randint(low=-9, high=10, size=M)
+print("Строка для вставки: {}".format(row))
+A = np.insert(A, L, row, axis=0)
+
+print("Новая матрица:\r\n{}\n".format(A))
+#18
+import numpy as np
+
+N = 4
+M = 5
+
+A = np.random.randint(low=-9, high=10, size=(N, M))
+print("Матрица:\r\n{}\n".format(A))
+
+a = np.diagonal(A)
+a_sum = a.sum()
+print("Главная диагональ: \n" + str(a) + "\n Её сумма = " + str(a_sum))
+b = np.fliplr(A).diagonal(0)
+b_sum = b.sum()
+print("Побочная диагональ: \n" + str(b) + "\n Её сумма = " + str(b_sum))
+#19
+import numpy as np
+
+N = 4
+M = 5
+
+A = np.random.randint(low=-9, high=10, size=(N, M))
+print("Матрица:\r\n{}\n".format(A))
+
+a = np.diagonal(A, 1)
+a_sum = a.sum()
+print("Элементы которые выше главной диагонали: \n" + str(a) + "\nИх сумма = " + str(a_sum))
+b = np.diagonal(A, -1)
+b_sum = b.sum()
+print("Элементы которые ниже главной диагонали: \n" + str(b) + "\nИх сумма = " + str(a_sum))
+#20
+import numpy as np
+
+N = 4
+M = 5
+
+A = np.random.randint(low=-9, high=10, size=(N, M))
+print("Матрица:\r\n{}\n".format(A))
+
+a = b = np.fliplr(A).diagonal(1)
+a_prod = a.prod()
+print("Элементы которые выше побочной диагонали: \n" + str(a) + "\nИх сумма = " + str(a_prod))
+b = np.fliplr(A).diagonal(-1)
+b_prod = b.prod()
+print("Элементы которые ниже побочной диагонали: \n" + str(b) + "\nИх сумма = " + str(b_prod))
+#21
+import numpy as np
+
+N = 4
+M = 4
+
+A = np.random.randint(low=-9, high=10, size=(N, M))
+print("Матрица:\r\n{}\n".format(A))
+
+B = (A + A.T)/2
+print("Новая матрица:\r\n{}\n".format(B))
+#22
+import numpy as np
+
+N = 4
+M = 5
+
+A = np.random.randint(low=-9, high=10, size=(N, M))
+print("Матрица:\r\n{}\n".format(A))
+
+col = [i % 2 for i in np.sum(A, axis=1)]
+A = np.insert(A, M, col, axis=1)
+
+print("Новая матрица:\r\n{}\n".format(A))
+#23
+import numpy as np
+
+N = 4
+M = 5
+
+A = np.random.randint(low=-9, high=10, size=(N, M))
+print("Матрица:\r\n{}\n".format(A))
+
+iu = np.triu_indices(N, 1)
+a = A[iu]
+a = np.sum(np.array(a))
+print("\nCумма элементов выше главной диагонали = " + str(a))
+b = np.fliplr(A)[iu]
+b = np.prod(np.array(b))
+print("\nПроизведение элементов выше побочной диагонали = " + str(b))
+#24
+import numpy as np
+
+N = 4
+M = 5
+L = np.random.randint(1, 3)
+K = np.random.randint(1, 3)
+
+A = np.random.randint(low=-9, high=10, size=(N, M))
+print("Матрица:\r\n{}\n".format(A))
+x = A[0:L ,0:K]
+x_sum = x.sum()
+print("Вверхняя левая часть: сумма равна = " + str(x_sum) + "\n" + str(x))
+y = A[L: ,0 :K]
+y_sum = y.sum()
+print("\nНижняя левая часть: сумма равна = " + str(y_sum) + "\n" + str(y))
+z = A[0:L ,K:]
+z_sum = z.sum()
+print("\nВверхняя правая часть: сумма равна = " + str(z_sum) + "\n" + str(z))
+a = A[L: ,K:]
+a_sum = a.sum()
+print("\nНижняя правая часть: сумма равна = " + str(a_sum) + "\n" + str(a))
+#25
+import numpy as np
+
+N = 4
+M = 5
+
+A = np.random.randint(low=-9, high=10, size=(N, M))
+print("Матрица:\r\n{}\n".format(A))
+
+bool = A == 0
+col = np.sum(bool, axis=1)
+A = np.insert(A, M, col, axis=1)
+row = np.append(np.sum(bool, axis=0), 0)
+A = np.insert(A, N, row, axis=0)
+print("Новая матрица:\r\n{}\n".format(A))
+#26
+import numpy as np
+
+N = 4
+M = 5
+L = np.random.randint(1, 3)
+K = np.random.randint(1, 3)
+
+A = np.random.randint(low=-9, high=10, size=(N, M))
+print("Матрица:\r\n{}\n".format(A))
+# Разделение матрицы на 4 части и нахождение среднее арифметическое
+x = A[0:L ,0:K]
+x_sum = x.mean()
+print("Вверхняя левая часть: среднее арифметическое = " + str(x_sum) + "\n" + str(x))
+y = A[L: ,0 :K]
+y_sum = y.mean()
+print("\nНижняя левая часть: среднее арифметическое = " + str(y_sum) + "\n" + str(y))
+z = A[0:L ,K:]
+z_sum = z.mean()
+print("\nВверхняя правая часть: среднее арифметическое = " + str(z_sum) + "\n" + str(z))
+a = A[L: ,K:]
+a_sum = a.mean()
+print("\nНижняя правая часть: среднее арифметическое = " + str(a_sum) + "\n" + str(a))
+#27
+import numpy as np
+
+N = 4
+M = 5
+H = np.random.randint(1, 3)
+
+A = np.random.randint(low=-9, high=10, size=(N, M))
+print("Матрица:\r\n{}\n".format(A))
+
+bool = A == H
+col_sum = np.sum(bool, axis=1)
+
+print("Строки в которых встречается значение {}:".format(H))
+print(np.argwhere(col_sum).flatten())
+print("Строки в которых нет значения {}:".format(H))
+print(np.argwhere(col_sum == 0).flatten())
+#28
+import numpy as np
+
+N = 4
+M = 5
+K = np.random.randint(1, 3)
+
+A = np.random.randint(low=-9, high=10, size=(N, M))
+print("Матрица:\r\n{}\n".format(A))
+print("K = " + str(K))
+A = np.delete(A, (K-1), axis=1)
+print("Новая матрица:\r\n{}\n".format(A))
+#29
+import numpy as np
+
+N = 4
+M = 5
+H = np.random.randint(1, 3)
+
+A = np.random.randint(low=-9, high=10, size=(N, M))
+print("Матрица:\r\n{}\n".format(A))
+
+bool = A == H
+col_sum = np.sum(bool, axis=1)
+
+print("Строки в которых встречается значение {}:".format(H))
+print(np.argwhere(col_sum).flatten())
+print("Строки в которых нет значения {}:".format(H))
+print(np.argwhere(col_sum == 0).flatten())
+#30
+import numpy as np
+
+N = 4
+M = 5
+K = np.random.randint(1, 3)
+
+A = np.random.randint(low=-9, high=10, size=(N, M))
+print("Матрица:\r\n{}\n".format(A))
+
+M_n = np.sum(A, axis=0) * (-1)
+A = np.vstack((A, M_n))
+
+print("Новая матрица:\r\n{}\n".format(A))
+#31
+import numpy as np
+
+N = 4
+M = 5
+K = np.random.randint(1, 3)
+
+A = np.random.randint(low=-9, high=10, size=(N, M))
+print("Матрица:\r\n{}\n".format(A))
+
+M_n = np.sum(A, axis=1) * (-1)
+A = np.hstack((A, M_n.reshape(-1, 1)))
+
+print("Новая матрица:\r\n{}\n".format(A))
+
