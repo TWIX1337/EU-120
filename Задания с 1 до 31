@@ -1,27 +1,27 @@
 import numpy as np
 
-
+print('zadanie №1')
 def task1(a, n, m):
     b = np.fabs(a)
     index = np.argmax(b.max(axis=0))
     print((a[:, index]).max())
 
-
+print('zadanie №2')
 def task2(a, n, m):
     print(a.mean(axis=1))
     print(max(a.mean(axis=1)))
 
-
+print('zadanie №3')
 def task3(a, n, m):
     b = np.fabs(a)
     index = np.argmax(b.max(axis=0))
     print((a[:, index]).min())
 
-
+print('zadanie №4')
 def task4(a, n, m):
     print(min(a.mean(axis=1)))
 
-
+print('zadanie №5')
 def task5(a, n, m):
     col = a.mean(axis=0)
     print(col)
@@ -34,7 +34,7 @@ def task5(a, n, m):
     a = (np.hstack([a, row]))
     print(a)
 
-
+print('zadanie №6')
 def task6(a, n, m):
     sum_elem = a.sum()
     list_sum_col = []
@@ -47,7 +47,7 @@ def task6(a, n, m):
     a = (np.vstack([a, npa]))
     print(a)
 
-
+print('zadanie №7')
 def task7(a, n, m):
     sum_elem = a.sum()
     list_sum_row = []
@@ -60,7 +60,7 @@ def task7(a, n, m):
     a = np.append(a, row, axis=1)
     print(a)
 
-
+print('zadanie №8')
 def task8(a, n, m):
     col = []
     row = []
@@ -79,7 +79,7 @@ def task8(a, n, m):
     a = np.append(a, row, axis=1)
     print(a)
 
-
+print('zadanie №9')
 def task9(a, n, m, l, k):
     count_top = 0
     count_left = 0
@@ -95,7 +95,7 @@ def task9(a, n, m, l, k):
             count_left += 1
     print("The first " + str(k) + " columns: " + str(count_top) + " zeros")
 
-
+print('zadanie №10')
 def task10(a, n, m, k):
     col = a[:, k]
     for i in range(m):
@@ -104,7 +104,7 @@ def task10(a, n, m, k):
         a[:, i] = col * a[:, i]
     print(a)
 
-
+print('zadanie №11')
 def task11(a, n, m, l):
     row = a[l, :]
     for i in range(n):
@@ -113,7 +113,7 @@ def task11(a, n, m, l):
         a[i, :] = row + a[i, :]
     print(a)
 
-
+print('zadanie №12')
 def task12(a, n, m):
     a.astype()
     max_elem = a.max(axis=1)
@@ -123,7 +123,7 @@ def task12(a, n, m):
             a[i][j] /= max_elem[i]
     print(a)
 
-
+print('zadanie №13')
 def task13(a, n, m):
     for i in range(m):
         max_elem = max(a[:, i])
@@ -131,13 +131,13 @@ def task13(a, n, m):
         a[:, i] /= max_elem
     print(a)
 
-
+print('zadanie №14')
 def task14(a, n, m):
     print(a.max())
     a = a / (a.max())
     print(a)
 
-
+print('zadanie №15')
 def task15(a, n, m, h):
     contains = []
     not_contains = []
@@ -149,17 +149,17 @@ def task15(a, n, m, h):
             not_contains.append(i)
     print('Contains: {}, Not contains: {}, value: {}'.format(contains, not_contains, h))
 
-
+print('zadanie №16')
 def task16(a, n, m, l):
     a = np.delete(a, l, axis=0)
     print(a)
 
-
+print('zadanie №17')
 def task17(a, n, m, l):
     a = np.insert(a, [l], [1], axis=0)
     print(a)
 
-
+print('zadanie №18')
 def task18(a, n, m):
     # n must less then m
     sumMain = 0
@@ -170,7 +170,7 @@ def task18(a, n, m):
     print(sumMain)
     print(sumSecondary)
 
-
+print('zadanie №19')
 def task19(a, n):
     sum_elem_down = 0
     sum_elem_up = 0
@@ -179,7 +179,7 @@ def task19(a, n):
         sum_elem_up += a[i - 1][i]
     print(sum_elem_down + sum_elem_up)
 
-
+print('zadanie №20')
 def task20(a, n):
     sum_elem_down = 1
     sum_elem_up = 1
@@ -188,7 +188,7 @@ def task20(a, n):
         sum_elem_up *= a[i][n-i-2]
     print(sum_elem_down * sum_elem_up)
 
-
+print('zadanie №21')
 def task21(a, n):
     for i in range(1, n):
         _sum = a[i][i - 1] + a[i - 1][i]
@@ -196,7 +196,7 @@ def task21(a, n):
         a.itemset((i-1, i), _sum // 2)
     print(a)
 
-
+print('zadanie №22')
 def task22(a, n, m):
     b = a.sum(axis=1)
     b %= 2
@@ -204,7 +204,7 @@ def task22(a, n, m):
     b = b.reshape(n, 1)
     print(np.hstack([a, b]))
 
-
+print('zadanie №23')
 def task23(a, n):
     sum_elem = 0
     mul_elem = 1
@@ -216,14 +216,14 @@ def task23(a, n):
             mul_elem *= a[i][j]
     print("Sum_elem= " + str(sum_elem) + " Mul_elem= " + str(mul_elem))
 
-
+print('zadanie №24')
 def task24(a, n, m, l, k):
     print(a[:l, :k].sum())
     print(a[:l, k:].sum())
     print(a[l:, :k].sum())
     print(a[l:, k:].sum())
 
-
+print('zadanie №25')
 def task25(a, n, m):
     col = []
     row = []
@@ -241,14 +241,14 @@ def task25(a, n, m):
     a = np.append(a, row, axis=1)
     print(a)
 
-
+print('zadanie №26')
 def task26(a, n, m, l, k):
     print(a[:l, :k].mean())
     print(a[:l, k:].mean())
     print(a[l:, :k].mean())
     print(a[l:, k:].mean())
 
-
+print('zadanie №27')
 def task27(a, n, m, h):
     contains = []
     not_contains = []
@@ -259,18 +259,18 @@ def task27(a, n, m, h):
             not_contains.append(i)
     print('Contains: {}, Not contains: {}, value: {}'.format(contains, not_contains, h))
 
-
+print('zadanie №28')
 def task28(a, n, m, k):
     a = np.delete(a, (k), axis=1)
     print(a)
 
-
+print('zadanie №29')
 def task29(a, n, m, k):
     b = np.random.randint(-15, 15, size=(n, 1))
     c = np.insert(a, k, values=b[:, 0], axis=1)
     print(c)
 
-
+print('zadanie №30')
 def task30(a, n, m):
     col = []
     for i in range(m):
@@ -288,7 +288,7 @@ def task30(a, n, m):
     a = np.append(a, col, axis=0)
     print(a)
 
-
+print('zadanie №31')
 def task31(a, n, m):
     row = []
     for i in range(n):
